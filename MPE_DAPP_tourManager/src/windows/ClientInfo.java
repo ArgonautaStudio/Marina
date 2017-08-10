@@ -19,9 +19,9 @@ public class ClientInfo extends javax.swing.JFrame {
     public ClientInfo() {
         initComponents();  
     }  
-    public ClientInfo(int i) {
+    public ClientInfo(Cart carrito) {
         initComponents();
-        cliente = new Client();
+        cliente = new Client(carrito.getIdTours());
     } 
 
     /**

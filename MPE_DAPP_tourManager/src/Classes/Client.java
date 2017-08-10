@@ -5,16 +5,21 @@
  */
 package Classes; 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author aheal
  */
 public class Client {
-    ArrayList idTour; 
+    List<Integer> idTour; 
     Integer noOrden;
     String correo, nombre, apellido, telefono;
-    
+    public Client (List<Integer> id) 
+    {
+        this.idTour = id;
+    }
+
     public void setNoOrden (Integer NoOrder) 
     {
         this.noOrden = NoOrder; 
@@ -59,7 +64,7 @@ public class Client {
     {
         this.idTour = tours; 
     } 
-    public ArrayList getTours() 
+    public List getTours() 
     {
         return this.idTour;
     }

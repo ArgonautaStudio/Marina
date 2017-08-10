@@ -6,24 +6,44 @@
 package Classes;
 
 import java.util.ArrayList; 
+import java.util.List;
 
 /**
  *
  * @author aleja
  */
 public class Cart {
-    ArrayList tours; 
+    
+    List<Item> tours; 
+    List<Integer> idTours;
     int pos;
+    
     public Cart () 
     {
-        tours = new ArrayList(); 
+        tours = new ArrayList<>(); 
+        idTours = new ArrayList<>();
         pos = 0;
     } 
     
     public void addTour(Item tour) 
     {
-        tours.add(pos,tour);
+        tours.add(pos,tour); 
+        idTours.add(pos,tour.getId());
         pos++;
+    }  
+    public void deleteTour (int position) 
+    {
+        tours.remove(position);
+        idTours.remove(position);
+    }
+    public List getTours() 
+    {
+        return this.tours;
+    } 
+    
+    public List getIdTours() 
+    {
+        return this.idTours;
     }
     
 }
