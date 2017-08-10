@@ -23,9 +23,9 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Component id="DRAGPANEL" alignment="0" max="32767" attributes="0"/>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="48" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="51" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="BACK" min="-2" max="-2" attributes="0"/>
@@ -35,21 +35,29 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="NAMEL" min="-2" max="-2" attributes="0"/>
-                          <Component id="NUMBERL" min="-2" max="-2" attributes="0"/>
-                          <Component id="EMAILL" min="-2" max="-2" attributes="0"/>
-                          <Component id="COMMENTL" min="-2" max="-2" attributes="0"/>
-                          <Component id="COUNTRYL" min="-2" max="-2" attributes="0"/>
+                          <Component id="label_name" min="-2" max="-2" attributes="0"/>
+                          <Component id="label_number" min="-2" max="-2" attributes="0"/>
+                          <Component id="label_email" min="-2" max="-2" attributes="0"/>
+                          <Component id="label_comment" min="-2" max="-2" attributes="0"/>
+                          <Component id="label_country" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="EMAILT" pref="356" max="32767" attributes="0"/>
-                          <Component id="NUMBERT" pref="356" max="32767" attributes="0"/>
-                          <Component id="COMMENTT" pref="356" max="32767" attributes="0"/>
-                          <Component id="NAME" max="32767" attributes="0"/>
-                          <Component id="COUNTRYT" alignment="0" pref="356" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="input_email" pref="356" max="32767" attributes="0"/>
+                              <Component id="input_number" pref="356" max="32767" attributes="0"/>
+                              <Component id="input_comment" pref="356" max="32767" attributes="0"/>
+                              <Component id="input_country" alignment="0" pref="356" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="input_name" min="-2" pref="176" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="label_last" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="input_last" min="-2" pref="176" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -58,31 +66,33 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <Component id="jPanel1" max="32767" attributes="0"/>
+              <Component id="DRAGPANEL" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="NAME" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="NAMEL" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="input_name" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="label_name" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="label_last" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="input_last" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="NUMBERT" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="EMAILL" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="input_number" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="label_email" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="COMMENTT" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="NUMBERL" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="input_comment" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="label_number" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="COUNTRYT" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="COUNTRYL" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="input_country" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="label_country" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="EMAILT" alignment="3" min="-2" pref="64" max="-2" attributes="0"/>
-                  <Component id="COMMENTL" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="input_email" alignment="3" min="-2" pref="64" max="-2" attributes="0"/>
+                  <Component id="label_comment" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -95,7 +105,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="DRAGPANEL">
 
       <Layout>
         <DimensionLayout dim="0">
@@ -123,37 +133,50 @@
         <Property name="text" type="java.lang.String" value="BACK"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="NAME">
+    <Component class="javax.swing.JTextField" name="input_name">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="input_nameActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="EMAILT">
+    <Component class="javax.swing.JTextField" name="input_last">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="input_lastActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="NUMBERT">
+    <Component class="javax.swing.JTextField" name="input_email">
     </Component>
-    <Component class="javax.swing.JTextField" name="COUNTRYT">
+    <Component class="javax.swing.JTextField" name="input_number">
     </Component>
-    <Component class="javax.swing.JTextField" name="COMMENTT">
+    <Component class="javax.swing.JTextField" name="input_country">
     </Component>
-    <Component class="javax.swing.JLabel" name="NAMEL">
+    <Component class="javax.swing.JTextField" name="input_comment">
+    </Component>
+    <Component class="javax.swing.JLabel" name="label_name">
       <Properties>
         <Property name="text" type="java.lang.String" value="NAME"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="EMAILL">
+    <Component class="javax.swing.JLabel" name="label_last">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="LAST"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="label_email">
       <Properties>
         <Property name="text" type="java.lang.String" value="EMAIL"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="NUMBERL">
+    <Component class="javax.swing.JLabel" name="label_number">
       <Properties>
         <Property name="text" type="java.lang.String" value="NUMBER"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="COUNTRYL">
+    <Component class="javax.swing.JLabel" name="label_country">
       <Properties>
         <Property name="text" type="java.lang.String" value="COUNTRY"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="COMMENTL">
+    <Component class="javax.swing.JLabel" name="label_comment">
       <Properties>
         <Property name="text" type="java.lang.String" value="COMMENT"/>
       </Properties>
