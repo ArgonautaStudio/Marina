@@ -5,6 +5,8 @@
  */
 package windows; 
 
+import javax.swing.*;
+
 
 
 
@@ -34,13 +36,13 @@ public class LogIn extends javax.swing.JFrame {
     private void initComponents() {
 
         panelSign = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel_dragger = new javax.swing.JLabel();
+        jButton_close = new javax.swing.JButton();
+        jLabel_signIn = new javax.swing.JLabel();
         jtext_nombre = new javax.swing.JTextField();
         jtext_confirmar = new javax.swing.JTextField();
         jtext_contrasenaAdmin = new javax.swing.JTextField();
         jtext_contrasena = new javax.swing.JTextField();
-        jButton_close = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         jlabel_unlock = new javax.swing.JLabel();
         jlabel_lock = new javax.swing.JLabel();
         jlabel_key = new javax.swing.JLabel();
@@ -54,6 +56,7 @@ public class LogIn extends javax.swing.JFrame {
         jRadioButton_admin = new javax.swing.JRadioButton();
         jRadioButton_vendedor = new javax.swing.JRadioButton();
         jlabel_fondo = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
         jPanel4 = new javax.swing.JPanel();
         panelChangeLogin = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -68,52 +71,32 @@ public class LogIn extends javax.swing.JFrame {
 
         panelSign.setLayout(null);
 
-        jLabel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        jLabel_dragger.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jLabel1MouseDragged(evt);
+                jLabel_draggerMouseDragged(evt);
             }
         });
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel_dragger.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel1MousePressed(evt);
+                jLabel_draggerMousePressed(evt);
             }
         });
-        panelSign.add(jLabel1);
-        jLabel1.setBounds(0, 0, 520, 30);
-
-        jtext_nombre.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
-        jtext_nombre.setForeground(new java.awt.Color(147, 149, 152));
-        jtext_nombre.setText("Nombre");
-        jtext_nombre.setBorder(null);
-        panelSign.add(jtext_nombre);
-        jtext_nombre.setBounds(70, 190, 370, 30);
-
-        jtext_confirmar.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
-        jtext_confirmar.setForeground(new java.awt.Color(147, 149, 152));
-        jtext_confirmar.setText("Confirmar contrasena");
-        jtext_confirmar.setBorder(null);
-        panelSign.add(jtext_confirmar);
-        jtext_confirmar.setBounds(70, 310, 370, 30);
-
-        jtext_contrasenaAdmin.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
-        jtext_contrasenaAdmin.setForeground(new java.awt.Color(147, 149, 152));
-        jtext_contrasenaAdmin.setText("Contrasena administrador");
-        jtext_contrasenaAdmin.setBorder(null);
-        panelSign.add(jtext_contrasenaAdmin);
-        jtext_contrasenaAdmin.setBounds(70, 370, 370, 30);
-
-        jtext_contrasena.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
-        jtext_contrasena.setForeground(new java.awt.Color(147, 149, 152));
-        jtext_contrasena.setText("Contrasena");
-        jtext_contrasena.setBorder(null);
-        panelSign.add(jtext_contrasena);
-        jtext_contrasena.setBounds(70, 250, 370, 30);
+        panelSign.add(jLabel_dragger);
+        jLabel_dragger.setBounds(0, 0, 520, 30);
 
         jButton_close.setBackground(new java.awt.Color(255, 255, 255));
         jButton_close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/SI_Bt_Cerrar.png"))); // NOI18N
         jButton_close.setBorder(null);
         jButton_close.setBorderPainted(false);
         jButton_close.setContentAreaFilled(false);
+        jButton_close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton_closeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton_closeMouseExited(evt);
+            }
+        });
         jButton_close.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_closeActionPerformed(evt);
@@ -122,11 +105,52 @@ public class LogIn extends javax.swing.JFrame {
         panelSign.add(jButton_close);
         jButton_close.setBounds(510, 0, 30, 30);
 
-        jLabel3.setFont(new java.awt.Font("Roboto", 1, 28)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 123, 164));
-        jLabel3.setText("SIGN IN");
-        panelSign.add(jLabel3);
-        jLabel3.setBounds(60, 80, 110, 40);
+        jLabel_signIn.setFont(new java.awt.Font("Roboto", 1, 28)); // NOI18N
+        jLabel_signIn.setForeground(new java.awt.Color(0, 123, 164));
+        jLabel_signIn.setText("SIGN IN");
+        panelSign.add(jLabel_signIn);
+        jLabel_signIn.setBounds(60, 80, 110, 40);
+
+        jtext_nombre.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        jtext_nombre.setForeground(new java.awt.Color(147, 149, 152));
+        jtext_nombre.setText("Nombre");
+        jtext_nombre.setBorder(null);
+        jtext_nombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtext_nombreMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jtext_nombreMouseExited(evt);
+            }
+        });
+        panelSign.add(jtext_nombre);
+        jtext_nombre.setBounds(70, 190, 370, 30);
+
+        jtext_confirmar.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        jtext_confirmar.setForeground(new java.awt.Color(147, 149, 152));
+        jtext_confirmar.setText("Confirmar contrasena");
+        jtext_confirmar.setBorder(null);
+        panelSign.add(jtext_confirmar);
+        jtext_confirmar.setBounds(70, 310, 370, 30);
+
+        jtext_contrasenaAdmin.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        jtext_contrasenaAdmin.setForeground(new java.awt.Color(147, 149, 152));
+        jtext_contrasenaAdmin.setText("Contrasena administrador");
+        jtext_contrasenaAdmin.setBorder(null);
+        jtext_contrasenaAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtext_contrasenaAdminActionPerformed(evt);
+            }
+        });
+        panelSign.add(jtext_contrasenaAdmin);
+        jtext_contrasenaAdmin.setBounds(70, 370, 370, 30);
+
+        jtext_contrasena.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        jtext_contrasena.setForeground(new java.awt.Color(147, 149, 152));
+        jtext_contrasena.setText("Contrasena");
+        jtext_contrasena.setBorder(null);
+        panelSign.add(jtext_contrasena);
+        jtext_contrasena.setBounds(70, 250, 370, 30);
 
         jlabel_unlock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/SI_Bt_Unlock.png"))); // NOI18N
         panelSign.add(jlabel_unlock);
@@ -195,6 +219,10 @@ public class LogIn extends javax.swing.JFrame {
         jlabel_fondo.setText("jLabel3");
         panelSign.add(jlabel_fondo);
         jlabel_fondo.setBounds(0, 0, 540, 500);
+
+        jPasswordField1.setText("jPasswordField1");
+        panelSign.add(jPasswordField1);
+        jPasswordField1.setBounds(180, 150, 111, 20);
 
         jPanel4.setLayout(null);
 
@@ -274,16 +302,46 @@ public class LogIn extends javax.swing.JFrame {
        System.exit(0);
     }//GEN-LAST:event_jButton_closeActionPerformed
 
-    private void jLabel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseDragged
+    private void jLabel_draggerMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_draggerMouseDragged
         // TODO add your handling code here: 
         this.setLocation(this.getLocation().x + evt.getX() - x, this.getLocation().y + evt.getY() - y);
-    }//GEN-LAST:event_jLabel1MouseDragged
+    }//GEN-LAST:event_jLabel_draggerMouseDragged
 
-    private void jLabel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MousePressed
+    private void jLabel_draggerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_draggerMousePressed
         // TODO add your handling code here: 
         x = evt.getX();
         y = evt.getY();
-    }//GEN-LAST:event_jLabel1MousePressed
+    }//GEN-LAST:event_jLabel_draggerMousePressed
+
+    private void jtext_contrasenaAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtext_contrasenaAdminActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtext_contrasenaAdminActionPerformed
+
+    private void jtext_nombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtext_nombreMouseClicked
+        // TODO add your handling code here: 
+        jtext_nombre.setText(""); 
+        
+    }//GEN-LAST:event_jtext_nombreMouseClicked
+
+    private void jtext_nombreMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtext_nombreMouseExited
+        // TODO add your handling code here: 
+        
+    }//GEN-LAST:event_jtext_nombreMouseExited
+
+    private void jButton_closeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_closeMouseEntered
+        // TODO add your handling code here:  
+
+        ImageIcon img;
+        img = new ImageIcon ("\\img\\SI_bt_Cerrar_Selec.png");
+        jButton_close.setIcon(img); 
+    }//GEN-LAST:event_jButton_closeMouseEntered
+
+    private void jButton_closeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_closeMouseExited
+        // TODO add your handling code here: 
+        ImageIcon img;
+        img = new ImageIcon ("\\img\\SI_bt_Cerrar.png");
+        jButton_close.setIcon(img);
+    }//GEN-LAST:event_jButton_closeMouseExited
 
     /**
      * @param args the command line arguments
@@ -328,13 +386,14 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton_close;
     private javax.swing.JButton jButton_signIn;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel_dragger;
+    private javax.swing.JLabel jLabel_signIn;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JRadioButton jRadioButton_admin;
     private javax.swing.JRadioButton jRadioButton_vendedor;
     private javax.swing.JLabel jlabel_fondo;
