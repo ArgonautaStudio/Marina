@@ -5,6 +5,7 @@
  */
 package windows; 
 
+import AppPackage.AnimationClass;
 import javax.swing.*;
 
 
@@ -20,7 +21,8 @@ public class LogIn extends javax.swing.JFrame {
      * Creates new form LogIn
      */ 
     int x,y; 
-    int cont = 0 ; 
+    int cont = 0 ;  
+    private AnimationClass ac = new AnimationClass();
     public LogIn() {
         initComponents();  
         AWTUtilities.setOpaque(this, false);
@@ -51,9 +53,9 @@ public class LogIn extends javax.swing.JFrame {
         jlabel_fondo2 = new javax.swing.JLabel();
         panelSignin = new javax.swing.JPanel();
         jtext_usuario = new javax.swing.JTextField();
+        jtext_contrasena = new javax.swing.JTextField();
         jtext_confirmar = new javax.swing.JTextField();
         jtext_contrasenaAdmin = new javax.swing.JTextField();
-        jtext_contrasena = new javax.swing.JTextField();
         jlabel_unlock = new javax.swing.JLabel();
         jlabel_lock = new javax.swing.JLabel();
         jlabel_key = new javax.swing.JLabel();
@@ -112,6 +114,11 @@ public class LogIn extends javax.swing.JFrame {
         jtext_contrasenaId.setForeground(new java.awt.Color(147, 149, 152));
         jtext_contrasenaId.setText("Contrasena");
         jtext_contrasenaId.setBorder(null);
+        jtext_contrasenaId.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtext_contrasenaIdMouseClicked(evt);
+            }
+        });
         panelLogin.add(jtext_contrasenaId);
         jtext_contrasenaId.setBounds(0, 80, 370, 30);
 
@@ -175,10 +182,27 @@ public class LogIn extends javax.swing.JFrame {
         panelSignin.add(jtext_usuario);
         jtext_usuario.setBounds(0, 20, 370, 30);
 
+        jtext_contrasena.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        jtext_contrasena.setForeground(new java.awt.Color(147, 149, 152));
+        jtext_contrasena.setText("Contrasena");
+        jtext_contrasena.setBorder(null);
+        jtext_contrasena.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtext_contrasenaMouseClicked(evt);
+            }
+        });
+        panelSignin.add(jtext_contrasena);
+        jtext_contrasena.setBounds(0, 80, 370, 30);
+
         jtext_confirmar.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         jtext_confirmar.setForeground(new java.awt.Color(147, 149, 152));
         jtext_confirmar.setText("Confirmar contrasena");
         jtext_confirmar.setBorder(null);
+        jtext_confirmar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtext_confirmarMouseClicked(evt);
+            }
+        });
         panelSignin.add(jtext_confirmar);
         jtext_confirmar.setBounds(0, 140, 370, 30);
 
@@ -186,20 +210,23 @@ public class LogIn extends javax.swing.JFrame {
         jtext_contrasenaAdmin.setForeground(new java.awt.Color(147, 149, 152));
         jtext_contrasenaAdmin.setText("Contrasena administrador");
         jtext_contrasenaAdmin.setBorder(null);
+        jtext_contrasenaAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jtext_contrasenaAdminMousePressed(evt);
+            }
+        });
         jtext_contrasenaAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtext_contrasenaAdminActionPerformed(evt);
             }
         });
+        jtext_contrasenaAdmin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtext_contrasenaAdminKeyPressed(evt);
+            }
+        });
         panelSignin.add(jtext_contrasenaAdmin);
         jtext_contrasenaAdmin.setBounds(0, 200, 370, 30);
-
-        jtext_contrasena.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
-        jtext_contrasena.setForeground(new java.awt.Color(147, 149, 152));
-        jtext_contrasena.setText("Contrasena");
-        jtext_contrasena.setBorder(null);
-        panelSignin.add(jtext_contrasena);
-        jtext_contrasena.setBounds(0, 80, 370, 30);
 
         jlabel_unlock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/SI_Bt_Unlock.png"))); // NOI18N
         panelSignin.add(jlabel_unlock);
@@ -257,6 +284,11 @@ public class LogIn extends javax.swing.JFrame {
         jRadioButton_admin.setForeground(new java.awt.Color(147, 149, 152));
         jRadioButton_admin.setText("Administrador");
         jRadioButton_admin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jRadioButton_admin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButton_adminMouseClicked(evt);
+            }
+        });
         panelSignin.add(jRadioButton_admin);
         jRadioButton_admin.setBounds(0, 270, 100, 23);
 
@@ -265,6 +297,11 @@ public class LogIn extends javax.swing.JFrame {
         jRadioButton_vendedor.setForeground(new java.awt.Color(147, 149, 152));
         jRadioButton_vendedor.setText("Vendedor");
         jRadioButton_vendedor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jRadioButton_vendedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButton_vendedorMouseClicked(evt);
+            }
+        });
         panelSignin.add(jRadioButton_vendedor);
         jRadioButton_vendedor.setBounds(100, 270, 80, 23);
 
@@ -429,11 +466,12 @@ public class LogIn extends javax.swing.JFrame {
 
     private void jtext_contrasenaAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtext_contrasenaAdminActionPerformed
         // TODO add your handling code here:
+        reescribirTexto("contrasenaAdmin");
     }//GEN-LAST:event_jtext_contrasenaAdminActionPerformed
 
     private void jtext_usuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtext_usuarioMouseClicked
         // TODO add your handling code here: 
-        jtext_usuario.setText(""); 
+        reescribirTexto("usuario");
         
     }//GEN-LAST:event_jtext_usuarioMouseClicked
 
@@ -461,7 +499,7 @@ public class LogIn extends javax.swing.JFrame {
 
     private void jLabel_changeLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_changeLoginMouseClicked
         // TODO add your handling code here: 
-        
+        reescribirTexto("change");
         Animacion.Animacion.mover_derecha(101, 450, 25, 35, panelGeneral); 
         panelChangeLogin.setVisible(false);
         panelChangeSignin.setVisible(true);
@@ -480,7 +518,8 @@ public class LogIn extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel_changeLoginMouseExited
 
     private void jtext_idMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtext_idMouseClicked
-        // TODO add your handling code here:
+        // TODO add your handling code here: 
+        reescribirTexto("id");
     }//GEN-LAST:event_jtext_idMouseClicked
 
     private void jtext_idMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtext_idMouseExited
@@ -493,13 +532,14 @@ public class LogIn extends javax.swing.JFrame {
 
     private void jLabel_changeSinginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_changeSinginMouseClicked
         // TODO add your handling code here: 
-        
-        Animacion.Animacion.mover_izquierda(450, 50 , 25, 35, panelGeneral); 
+        reescribirTexto("change");
         panelChangeLogin.setVisible(true); 
         panelChangeSignin.setVisible(false);
         panelSignin.setVisible(true); 
         panelLogin.setVisible(false);
-        jLabel_signIn.setText("SIGN IN"); 
+        jLabel_signIn.setText("SIGN IN");
+        Animacion.Animacion.mover_izquierda(440, 40 , 25, 35, panelGeneral); 
+         
         
     }//GEN-LAST:event_jLabel_changeSinginMouseClicked
 
@@ -511,6 +551,148 @@ public class LogIn extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel_changeSinginMouseExited
 
+    private void jtext_contrasenaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtext_contrasenaMouseClicked
+        // TODO add your handling code here: 
+        reescribirTexto("contrasena");
+    }//GEN-LAST:event_jtext_contrasenaMouseClicked
+
+    private void jtext_confirmarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtext_confirmarMouseClicked
+        // TODO add your handling code here: 
+        reescribirTexto("confirmar");
+    }//GEN-LAST:event_jtext_confirmarMouseClicked
+
+    private void jtext_contrasenaAdminKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtext_contrasenaAdminKeyPressed
+        // TODO add your handling code here: 
+        
+    }//GEN-LAST:event_jtext_contrasenaAdminKeyPressed
+
+    private void jtext_contrasenaIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtext_contrasenaIdMouseClicked
+        // TODO add your handling code here:
+        reescribirTexto("contrasenaId");
+    }//GEN-LAST:event_jtext_contrasenaIdMouseClicked
+
+    private void jRadioButton_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton_adminMouseClicked
+        // TODO add your handling code here: 
+        if(jRadioButton_vendedor.isSelected())
+            jRadioButton_vendedor.setSelected(false);
+    }//GEN-LAST:event_jRadioButton_adminMouseClicked
+
+    private void jRadioButton_vendedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton_vendedorMouseClicked
+        // TODO add your handling code here: 
+        if(jRadioButton_admin.isSelected())
+            jRadioButton_admin.setSelected(false);
+    }//GEN-LAST:event_jRadioButton_vendedorMouseClicked
+
+    private void jtext_contrasenaAdminMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtext_contrasenaAdminMousePressed
+        // TODO add your handling code here: 
+        reescribirTexto("contrasenaAdmin");
+    }//GEN-LAST:event_jtext_contrasenaAdminMousePressed
+
+    private void reescribirTexto(String tipo)
+    {
+        switch(tipo) {
+            case "usuario": 
+                jtext_usuario.setText("");  
+                if("".equals(jtext_contrasena.getText())) 
+                {
+                    jtext_contrasena.setText("Contrasena");
+                } 
+                if("".equals(jtext_confirmar.getText())) 
+                {
+                    jtext_confirmar.setText("Confirmar");
+                } 
+                if("".equals(jtext_contrasenaAdmin.getText())) 
+                {
+                    jtext_contrasenaAdmin.setText("Contrasena administrador");
+                }
+                break; 
+            case "contrasena": 
+                jtext_contrasena.setText("");  
+                if("".equals(jtext_usuario.getText())) 
+                {
+                    jtext_usuario.setText("Usuario");
+                } 
+                if("".equals(jtext_confirmar.getText())) 
+                {
+                    jtext_confirmar.setText("Confirmar");
+                } 
+                if("".equals(jtext_contrasenaAdmin.getText())) 
+                {
+                    jtext_contrasenaAdmin.setText("Contrasena administrador");
+                }
+                break; 
+            case "confirmar": 
+                jtext_confirmar.setText("");  
+                if("".equals(jtext_usuario.getText())) 
+                {
+                    jtext_usuario.setText("Usuario");
+                } 
+                if("".equals(jtext_contrasena.getText())) 
+                {
+                    jtext_contrasena.setText("Contrasena");
+                } 
+                if("".equals(jtext_contrasenaAdmin.getText())) 
+                {
+                    jtext_contrasenaAdmin.setText("Contrasena administrador");
+                }
+                break; 
+            case "contrasenaAdmin": 
+                jtext_contrasenaAdmin.setText("");  
+                if("".equals(jtext_usuario.getText())) 
+                {
+                    jtext_usuario.setText("Usuario");
+                } 
+                if("".equals(jtext_confirmar.getText())) 
+                {
+                    jtext_confirmar.setText("Confirmar");
+                } 
+                if("".equals(jtext_contrasena.getText())) 
+                {
+                    jtext_contrasena.setText("Contrasena");
+                }
+                break;
+            case "id":  
+                jtext_id.setText("");  
+                if("".equals(jtext_contrasenaId.getText())) 
+                {
+                    jtext_contrasenaId.setText("Contrasena");
+                } 
+                break;
+            case "contrasenaId": 
+                jtext_contrasenaId.setText("");  
+                if("".equals(jtext_id.getText())) 
+                {
+                    jtext_id.setText("Id");
+                } 
+                break;  
+            case "change" :  
+                if("".equals(jtext_usuario.getText())) 
+                {
+                    jtext_usuario.setText("Usuario");
+                } 
+                if("".equals(jtext_contrasena.getText())) 
+                {
+                    jtext_contrasena.setText("Contrasena");
+                } 
+                if("".equals(jtext_confirmar.getText())) 
+                {
+                    jtext_confirmar.setText("Confirmar");
+                } 
+                if("".equals(jtext_contrasenaAdmin.getText())) 
+                {
+                    jtext_contrasenaAdmin.setText("Contrasena administrador");
+                } 
+                if("".equals(jtext_id.getText())) 
+                {
+                    jtext_id.setText("Id");
+                } 
+                if("".equals(jtext_contrasenaId.getText())) 
+                {
+                    jtext_contrasenaId.setText("Contrasena");
+                }
+                break;
+        }
+    }
     /**
      * @param args the command line arguments
      */
