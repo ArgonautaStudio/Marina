@@ -44,9 +44,8 @@ public class LogIn extends javax.swing.JFrame {
         panelLogin = new javax.swing.JPanel();
         jtext_id = new javax.swing.JTextField();
         jtext_contrasenaId = new javax.swing.JTextField();
+        jLabel_login = new javax.swing.JLabel();
         jlabel_unlock1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jButton_login = new javax.swing.JButton();
         jlabel_line4 = new javax.swing.JLabel();
         jlabel_line7 = new javax.swing.JLabel();
         jlabel_personp = new javax.swing.JLabel();
@@ -59,8 +58,7 @@ public class LogIn extends javax.swing.JFrame {
         jlabel_unlock = new javax.swing.JLabel();
         jlabel_lock = new javax.swing.JLabel();
         jlabel_key = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jButton_signIn = new javax.swing.JButton();
+        jLabel_sign = new javax.swing.JLabel();
         jlabel_line = new javax.swing.JLabel();
         jlabel_line1 = new javax.swing.JLabel();
         jlabel_line2 = new javax.swing.JLabel();
@@ -122,28 +120,25 @@ public class LogIn extends javax.swing.JFrame {
         panelLogin.add(jtext_contrasenaId);
         jtext_contrasenaId.setBounds(0, 80, 370, 30);
 
+        jLabel_login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Btn_LogIn_Normal_1.png"))); // NOI18N
+        jLabel_login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_login.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_loginMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel_loginMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_loginMouseExited(evt);
+            }
+        });
+        panelLogin.add(jLabel_login);
+        jLabel_login.setBounds(230, 180, 180, 50);
+
         jlabel_unlock1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/SI_Bt_Lock.png"))); // NOI18N
         panelLogin.add(jlabel_unlock1);
         jlabel_unlock1.setBounds(390, 70, 17, 30);
-
-        jLabel3.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(241, 242, 242));
-        jLabel3.setText("Log in");
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        panelLogin.add(jLabel3);
-        jLabel3.setBounds(290, 190, 60, 30);
-
-        jButton_login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/SI_Btn_SignIn.png"))); // NOI18N
-        jButton_login.setToolTipText("");
-        jButton_login.setBorder(null);
-        jButton_login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton_login.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_loginActionPerformed(evt);
-            }
-        });
-        panelLogin.add(jButton_login);
-        jButton_login.setBounds(230, 180, 180, 50);
 
         jlabel_line4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/SI_Bt_Line.png"))); // NOI18N
         panelLogin.add(jlabel_line4);
@@ -239,25 +234,8 @@ public class LogIn extends javax.swing.JFrame {
         jlabel_key.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/SI_Bt_Key.png"))); // NOI18N
         panelSignin.add(jlabel_key);
         jlabel_key.setBounds(380, 200, 24, 30);
-
-        jLabel2.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(241, 242, 242));
-        jLabel2.setText("Sign in");
-        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        panelSignin.add(jLabel2);
-        jLabel2.setBounds(290, 270, 60, 30);
-
-        jButton_signIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/SI_Btn_SignIn.png"))); // NOI18N
-        jButton_signIn.setToolTipText("");
-        jButton_signIn.setBorder(null);
-        jButton_signIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton_signIn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_signInActionPerformed(evt);
-            }
-        });
-        panelSignin.add(jButton_signIn);
-        jButton_signIn.setBounds(230, 260, 180, 50);
+        panelSignin.add(jLabel_sign);
+        jLabel_sign.setBounds(230, 260, 180, 50);
 
         jlabel_line.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/SI_Bt_Line.png"))); // NOI18N
         panelSignin.add(jlabel_line);
@@ -283,7 +261,7 @@ public class LogIn extends javax.swing.JFrame {
         jRadioButton_admin.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         jRadioButton_admin.setForeground(new java.awt.Color(147, 149, 152));
         jRadioButton_admin.setText("Administrador");
-        jRadioButton_admin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jRadioButton_admin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jRadioButton_admin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jRadioButton_adminMouseClicked(evt);
@@ -296,7 +274,7 @@ public class LogIn extends javax.swing.JFrame {
         jRadioButton_vendedor.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         jRadioButton_vendedor.setForeground(new java.awt.Color(147, 149, 152));
         jRadioButton_vendedor.setText("Vendedor");
-        jRadioButton_vendedor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jRadioButton_vendedor.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jRadioButton_vendedor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jRadioButton_vendedorMouseClicked(evt);
@@ -379,7 +357,7 @@ public class LogIn extends javax.swing.JFrame {
         panelChangeSignin.add(jLabel9);
         jLabel9.setBounds(20, 50, 210, 40);
 
-        jLabel_changeSingin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/SI_Bt_LogIn_02.png"))); // NOI18N
+        jLabel_changeSingin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/LI_Btn_SignIn_02.png"))); // NOI18N
         jLabel_changeSingin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel_changeSingin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -449,10 +427,6 @@ public class LogIn extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton_signInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_signInActionPerformed
-     
-    }//GEN-LAST:event_jButton_signInActionPerformed
-
     private void jLabel_draggerMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_draggerMouseDragged
         // TODO add your handling code here: 
         this.setLocation(this.getLocation().x + evt.getX() - x, this.getLocation().y + evt.getY() - y);
@@ -499,13 +473,17 @@ public class LogIn extends javax.swing.JFrame {
 
     private void jLabel_changeLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_changeLoginMouseClicked
         // TODO add your handling code here: 
-        reescribirTexto("change");
-        Animacion.Animacion.mover_derecha(101, 450, 25, 35, panelGeneral); 
-        panelChangeLogin.setVisible(false);
-        panelChangeSignin.setVisible(true);
+        reescribirTexto("change"); 
+        panelChangeLogin.setVisible(false); 
+        panelChangeLogin.setEnabled(false);
+        panelChangeSignin.setVisible(true); 
+        panelChangeSignin.setEnabled(true);
         panelSignin.setVisible(false); 
-        panelLogin.setVisible(true);
-        jLabel_signIn.setText("LOG IN");  
+        panelSignin.setEnabled(false);
+        panelLogin.setVisible(true); 
+        panelLogin.setEnabled(true);
+        jLabel_signIn.setText("LOG IN"); 
+        Animacion.Animacion.mover_derecha(101, 450, 25, 35, panelGeneral);
         
     }//GEN-LAST:event_jLabel_changeLoginMouseClicked
 
@@ -526,17 +504,19 @@ public class LogIn extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtext_idMouseExited
 
-    private void jButton_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_loginActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton_loginActionPerformed
-
     private void jLabel_changeSinginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_changeSinginMouseClicked
         // TODO add your handling code here: 
-        reescribirTexto("change");
+        reescribirTexto("change"); 
+        ImageIcon img = new ImageIcon(getClass().getResource("/img/Btn_SingIn02_Active.png")); 
+        jLabel_changeSingin.setIcon(img);
         panelChangeLogin.setVisible(true); 
-        panelChangeSignin.setVisible(false);
+        panelChangeLogin.setEnabled(true);
+        panelChangeSignin.setVisible(false); 
+        panelChangeSignin.setEnabled(false);
         panelSignin.setVisible(true); 
-        panelLogin.setVisible(false);
+        panelSignin.setEnabled(true);
+        panelLogin.setVisible(false); 
+        panelLogin.setEnabled(false);
         jLabel_signIn.setText("SIGN IN");
         Animacion.Animacion.mover_izquierda(440, 40 , 25, 35, panelGeneral); 
          
@@ -544,11 +524,15 @@ public class LogIn extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel_changeSinginMouseClicked
 
     private void jLabel_changeSinginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_changeSinginMouseEntered
-        // TODO add your handling code here:
+        // TODO add your handling code here: 
+        ImageIcon img = new ImageIcon(getClass().getResource("/img/Btn_SingIn02_Hover.png")); 
+        jLabel_changeSingin.setIcon(img);
     }//GEN-LAST:event_jLabel_changeSinginMouseEntered
 
     private void jLabel_changeSinginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_changeSinginMouseExited
-        // TODO add your handling code here:
+        // TODO add your handling code here: 
+        ImageIcon img = new ImageIcon(getClass().getResource("/img/LI_Btn_SignIn_02.png")); 
+        jLabel_changeSingin.setIcon(img);
     }//GEN-LAST:event_jLabel_changeSinginMouseExited
 
     private void jtext_contrasenaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtext_contrasenaMouseClicked
@@ -587,6 +571,24 @@ public class LogIn extends javax.swing.JFrame {
         // TODO add your handling code here: 
         reescribirTexto("contrasenaAdmin");
     }//GEN-LAST:event_jtext_contrasenaAdminMousePressed
+
+    private void jLabel_loginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_loginMouseEntered
+        // TODO add your handling code here: 
+        ImageIcon img = new ImageIcon(getClass().getResource("/img/Btn_LogIn_Hover_1.png")); 
+        jLabel_login.setIcon(img);
+    }//GEN-LAST:event_jLabel_loginMouseEntered
+
+    private void jLabel_loginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_loginMouseExited
+        // TODO add your handling code here: 
+        ImageIcon img = new ImageIcon(getClass().getResource("/img/Btn_LogIn_Normal_1.png")); 
+        jLabel_login.setIcon(img);
+    }//GEN-LAST:event_jLabel_loginMouseExited
+
+    private void jLabel_loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_loginMouseClicked
+        // TODO add your handling code here:
+        ImageIcon img = new ImageIcon(getClass().getResource("/img/Btn_LogIn_Active_1.png")); 
+        jLabel_login.setIcon(img);
+    }//GEN-LAST:event_jLabel_loginMouseClicked
 
     private void reescribirTexto(String tipo)
     {
@@ -732,10 +734,6 @@ public class LogIn extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
-    private javax.swing.JButton jButton_login;
-    private javax.swing.JButton jButton_signIn;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -746,6 +744,8 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_changeSingin;
     private javax.swing.JLabel jLabel_close;
     private javax.swing.JLabel jLabel_dragger;
+    private javax.swing.JLabel jLabel_login;
+    private javax.swing.JLabel jLabel_sign;
     private javax.swing.JLabel jLabel_signIn;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JRadioButton jRadioButton_admin;
