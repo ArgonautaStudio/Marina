@@ -42,6 +42,11 @@ public class Ventas extends javax.swing.JFrame {
         icon_guy = new javax.swing.JLabel();
         box = new javax.swing.JLabel();
         panel_general = new javax.swing.JPanel();
+        input_infante = new javax.swing.JTextField();
+        input_nino = new javax.swing.JTextField();
+        input_adulto = new javax.swing.JTextField();
+        moneda = new javax.swing.JLabel();
+        precioFinal = new javax.swing.JLabel();
         fondito6 = new javax.swing.JLabel();
         fondito5 = new javax.swing.JLabel();
         fondito4 = new javax.swing.JLabel();
@@ -50,6 +55,13 @@ public class Ventas extends javax.swing.JFrame {
         fondito1 = new javax.swing.JLabel();
         btn_usa = new javax.swing.JLabel();
         btn_mxn = new javax.swing.JLabel();
+        btn_codigoPromocion = new javax.swing.JLabel();
+        btn_seguirComprando = new javax.swing.JLabel();
+        btn_cancelar = new javax.swing.JLabel();
+        btn_siguiente = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -126,6 +138,35 @@ public class Ventas extends javax.swing.JFrame {
         panel_general.setBackground(new java.awt.Color(255, 255, 255));
         panel_general.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        input_infante.setFont(new java.awt.Font("Roboto", 0, 55)); // NOI18N
+        input_infante.setText("0");
+        input_infante.setAutoscrolls(false);
+        input_infante.setBorder(null);
+        input_infante.setOpaque(false);
+        panel_general.add(input_infante, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 330, 60, 60));
+
+        input_nino.setFont(new java.awt.Font("Roboto", 0, 55)); // NOI18N
+        input_nino.setText("0");
+        input_nino.setAutoscrolls(false);
+        input_nino.setBorder(null);
+        input_nino.setOpaque(false);
+        panel_general.add(input_nino, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 230, 60, 60));
+
+        input_adulto.setFont(new java.awt.Font("Roboto", 0, 55)); // NOI18N
+        input_adulto.setText("0");
+        input_adulto.setAutoscrolls(false);
+        input_adulto.setBorder(null);
+        input_adulto.setOpaque(false);
+        panel_general.add(input_adulto, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 130, 60, 60));
+
+        moneda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Ag_btn_mx.png"))); // NOI18N
+        moneda.setToolTipText("");
+        panel_general.add(moneda, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 570, -1, -1));
+
+        precioFinal.setFont(new java.awt.Font("Roboto", 0, 62)); // NOI18N
+        precioFinal.setText("$000.00");
+        panel_general.add(precioFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 530, -1, -1));
+
         fondito6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Ag_Btn_Price.jpg"))); // NOI18N
         panel_general.add(fondito6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 320, -1, -1));
 
@@ -142,6 +183,7 @@ public class Ventas extends javax.swing.JFrame {
         panel_general.add(fondito2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 220, -1, -1));
 
         fondito1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Ag_Btn_Description.jpg"))); // NOI18N
+        fondito1.setOpaque(true);
         panel_general.add(fondito1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 120, -1, -1));
 
         btn_usa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Ag_btn_usd.png"))); // NOI18N
@@ -149,6 +191,32 @@ public class Ventas extends javax.swing.JFrame {
 
         btn_mxn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Ag_btn_mx_select.png"))); // NOI18N
         panel_general.add(btn_mxn, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 70, -1, -1));
+
+        btn_codigoPromocion.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        btn_codigoPromocion.setForeground(new java.awt.Color(51, 153, 255));
+        btn_codigoPromocion.setText("Codigo de promocion");
+        panel_general.add(btn_codigoPromocion, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 600, -1, -1));
+
+        btn_seguirComprando.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btn_Comprar.jpg"))); // NOI18N
+        panel_general.add(btn_seguirComprando, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 670, -1, -1));
+
+        btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btn_Cancelar.jpg"))); // NOI18N
+        panel_general.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 670, -1, -1));
+
+        btn_siguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btn_Siguiente.jpg"))); // NOI18N
+        panel_general.add(btn_siguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 670, -1, -1));
+
+        jLabel18.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        jLabel18.setText("Infante");
+        panel_general.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 320, -1, -1));
+
+        jLabel17.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        jLabel17.setText("Nino");
+        panel_general.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 220, -1, -1));
+
+        jLabel16.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        jLabel16.setText("Adulto");
+        panel_general.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 120, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabel15.setText("x");
@@ -163,22 +231,22 @@ public class Ventas extends javax.swing.JFrame {
         panel_general.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 150, 20, 20));
 
         jLabel12.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel12.setForeground(new java.awt.Color(0, 123, 164));
         jLabel12.setText("Total");
         panel_general.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 470, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(51, 102, 255));
+        jLabel11.setForeground(new java.awt.Color(0, 123, 164));
         jLabel11.setText("Hora");
         panel_general.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 510, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel10.setForeground(new java.awt.Color(0, 123, 164));
         jLabel10.setText("Precio");
         panel_general.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 20, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(51, 102, 255));
+        jLabel9.setForeground(new java.awt.Color(0, 123, 164));
         jLabel9.setText("Dia");
         panel_general.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, -1, -1));
 
@@ -240,9 +308,13 @@ public class Ventas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel box;
+    private javax.swing.JLabel btn_cancelar;
     private javax.swing.JLabel btn_cerrar;
+    private javax.swing.JLabel btn_codigoPromocion;
     private javax.swing.JLabel btn_minimizar;
     private javax.swing.JLabel btn_mxn;
+    private javax.swing.JLabel btn_seguirComprando;
+    private javax.swing.JLabel btn_siguiente;
     private javax.swing.JLabel btn_usa;
     private javax.swing.JLabel drag;
     private javax.swing.JLabel fondito1;
@@ -254,6 +326,9 @@ public class Ventas extends javax.swing.JFrame {
     private javax.swing.JLabel fondo_pasos;
     private javax.swing.JLabel guy;
     private javax.swing.JLabel icon_guy;
+    private javax.swing.JTextField input_adulto;
+    private javax.swing.JTextField input_infante;
+    private javax.swing.JTextField input_nino;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -261,6 +336,9 @@ public class Ventas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -269,10 +347,12 @@ public class Ventas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel moneda;
     private javax.swing.JPanel panel_calendario;
     private javax.swing.JPanel panel_drag;
     private javax.swing.JPanel panel_general;
     private javax.swing.JPanel panel_opciones;
     private javax.swing.JPanel panel_pasos;
+    private javax.swing.JLabel precioFinal;
     // End of variables declaration//GEN-END:variables
 }
