@@ -98,7 +98,7 @@ public class Ventas extends javax.swing.JFrame {
         });
         panel_drag.add(btn_cerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1550, 0, 50, 40));
 
-        Drager.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
+        Drager.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Drager.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 DragerMouseDragged(evt);
@@ -173,7 +173,7 @@ public class Ventas extends javax.swing.JFrame {
         btn_book.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Btn_Book_Static.png"))); // NOI18N
         btn_book.setBorderPainted(false);
         btn_book.setContentAreaFilled(false);
-        btn_book.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_book.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btn_book.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btn_bookMouseEntered(evt);
@@ -241,31 +241,37 @@ public class Ventas extends javax.swing.JFrame {
         btn_seguirComprando.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btn_Comprar.jpg"))); // NOI18N
         btn_seguirComprando.setBorderPainted(false);
         btn_seguirComprando.setContentAreaFilled(false);
+        btn_seguirComprando.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panel_bookOpciones.add(btn_seguirComprando, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 670, 160, 50));
 
         btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btn_Cancelar.jpg"))); // NOI18N
         btn_cancelar.setBorderPainted(false);
         btn_cancelar.setContentAreaFilled(false);
+        btn_cancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panel_bookOpciones.add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 670, 100, 50));
 
         btn_siguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btn_Siguiente.jpg"))); // NOI18N
         btn_siguiente.setBorderPainted(false);
         btn_siguiente.setContentAreaFilled(false);
+        btn_siguiente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panel_bookOpciones.add(btn_siguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 670, 100, 50));
 
         btn_mx.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Ag_btn_mx_select.png"))); // NOI18N
         btn_mx.setBorderPainted(false);
         btn_mx.setContentAreaFilled(false);
+        btn_mx.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panel_bookOpciones.add(btn_mx, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 70, 40, 30));
 
         btn_usd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Ag_btn_usd.png"))); // NOI18N
         btn_usd.setBorderPainted(false);
         btn_usd.setContentAreaFilled(false);
+        btn_usd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panel_bookOpciones.add(btn_usd, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 80, 50, 20));
 
         btn_codigoPromocion.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         btn_codigoPromocion.setForeground(new java.awt.Color(51, 153, 255));
         btn_codigoPromocion.setText("Codigo de promocion");
+        btn_codigoPromocion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panel_bookOpciones.add(btn_codigoPromocion, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 590, -1, -1));
 
         moneda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Ag_btn_mx.png"))); // NOI18N
