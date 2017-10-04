@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import Classes.Prices;
 
 /**
  *
@@ -221,24 +222,21 @@ public class Conecction {
         }
         
     }
-
-    public float[] getMXprices(int tipo) {
-         float[] ar =new float[3];
-         
-        try
+  
+    public Prices getPrices(int tipo){
+        Prices item = null;
+          try
         {
             Class.forName(myDriver);
             Connection conn = DriverManager.getConnection(url, user, pass);
-            String []names = new String[1];
-            String query = "SELECT precioAdultoMX,precioNinoMX,precioInfanteMX FROM Marina_PDE_DB.tour where idtour = " + tipo;
+            String query = "SELECT precioAdultoMX,precioNinoMX,precioInfanteMX,precioAdultoUS,precioNinoUS,precioInfanteUS FROM Marina_PDE_DB.tour where idtour = " + tipo;
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(query);
-            ar[0]=rs.getFloat("precioAdultoMX");
-            rs.next();
-            ar[1]=rs.getFloat("precioNinoMX");
-            rs.next();
-            ar[2]=rs.getFloat("precioInfanteMX");
-        return ar;
+            while(rs.next())
+            {
+               item = new Prices(rs.getFloat("precioAdultoMX"),rs.getFloat("precioNinoMX"),rs.getFloat("precioInfanteMX"),rs.getFloat("precioAdultoUS"),rs.getFloat("precioNinoUS"),rs.getFloat("precioInfanteUS"));
+            }
+            return item;
         }
         catch (ClassNotFoundException | SQLException e)
         {

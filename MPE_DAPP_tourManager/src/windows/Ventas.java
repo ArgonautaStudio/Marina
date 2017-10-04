@@ -8,6 +8,7 @@ package windows;
 import java.util.Date;
 import javax.swing.ImageIcon;
 import Conecction.Conecction;
+import Classes.Prices;
 
 /**
  *
@@ -18,7 +19,7 @@ public class Ventas extends javax.swing.JFrame {
     Date date;
     private Conecction conn;
     int tipo=1;
-    float[] ar=new float[3];
+    Prices prices;
     
     /**
      * Creates new form Ventas
@@ -27,11 +28,7 @@ public class Ventas extends javax.swing.JFrame {
         initComponents(); 
         this.conn = new Conecction();
         this.setLocationRelativeTo(this);
-        ar=conn.getMXprices(tipo);
-        this.precio_adulto.setText(Float.toString(ar[0]));
-        this.precio_nino.setText(Float.toString(ar[1]));
-        this.precio_infante.setText(Float.toString(ar[2]));
-        //MX PRICES
+        prices=conn.getPrices(tipo);
         panel_bookOpciones.setVisible(false);
     }
 
@@ -239,7 +236,7 @@ public class Ventas extends javax.swing.JFrame {
                 BTN_DAyActionPerformed(evt);
             }
         });
-        panel_bookOpciones.add(BTN_DAy, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, -1, -1));
+        panel_bookOpciones.add(BTN_DAy, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 400, -1, -1));
 
         input_infante.setBackground(new java.awt.Color(240, 240, 240));
         input_infante.setFont(new java.awt.Font("Roboto", 0, 55)); // NOI18N
@@ -286,11 +283,23 @@ public class Ventas extends javax.swing.JFrame {
         btn_mx.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Ag_btn_mx_select.png"))); // NOI18N
         btn_mx.setBorderPainted(false);
         btn_mx.setContentAreaFilled(false);
+        btn_mx.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_mx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_mxActionPerformed(evt);
+            }
+        });
         panel_bookOpciones.add(btn_mx, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 70, 40, 30));
 
         btn_usd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Ag_btn_usd.png"))); // NOI18N
         btn_usd.setBorderPainted(false);
         btn_usd.setContentAreaFilled(false);
+        btn_usd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_usd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_usdActionPerformed(evt);
+            }
+        });
         panel_bookOpciones.add(btn_usd, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 80, 50, 20));
 
         btn_codigoPromocion.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
@@ -303,13 +312,28 @@ public class Ventas extends javax.swing.JFrame {
         panel_bookOpciones.add(moneda, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 560, -1, -1));
 
         Horario1.setText("10:00 AM");
+        Horario1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Horario1ActionPerformed(evt);
+            }
+        });
         panel_bookOpciones.add(Horario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 550, -1, -1));
 
         Horario3.setText("16:00 PM");
-        panel_bookOpciones.add(Horario3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 540, -1, 20));
+        Horario3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Horario3ActionPerformed(evt);
+            }
+        });
+        panel_bookOpciones.add(Horario3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 550, -1, 20));
 
         Horario2.setText("12:00 PM");
-        panel_bookOpciones.add(Horario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 540, -1, -1));
+        Horario2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Horario2ActionPerformed(evt);
+            }
+        });
+        panel_bookOpciones.add(Horario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 550, -1, -1));
 
         precioFinal.setFont(new java.awt.Font("Roboto", 0, 62)); // NOI18N
         precioFinal.setText("$000.00");
@@ -317,16 +341,19 @@ public class Ventas extends javax.swing.JFrame {
 
         precio_infante.setFont(new java.awt.Font("Roboto", 0, 26)); // NOI18N
         precio_infante.setForeground(new java.awt.Color(255, 255, 255));
+        precio_infante.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         precio_infante.setText("$0000");
         panel_bookOpciones.add(precio_infante, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 350, 80, -1));
 
         precio_nino.setFont(new java.awt.Font("Roboto", 0, 26)); // NOI18N
         precio_nino.setForeground(new java.awt.Color(255, 255, 255));
+        precio_nino.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         precio_nino.setText("$0000");
         panel_bookOpciones.add(precio_nino, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 250, 80, -1));
 
         precio_adulto.setFont(new java.awt.Font("Roboto", 0, 26)); // NOI18N
         precio_adulto.setForeground(new java.awt.Color(255, 255, 255));
+        precio_adulto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         precio_adulto.setText("$0000");
         panel_bookOpciones.add(precio_adulto, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 150, 80, -1));
 
@@ -430,6 +457,10 @@ public class Ventas extends javax.swing.JFrame {
         ImageIcon img = new ImageIcon(getClass().getResource("/img/Btn_Book_Active.png"));
         btn_book.setIcon(img); 
         panel_bookOpciones.setVisible(true);
+        this.precio_adulto.setText(Float.toString(prices.priceMXadulto));
+        this.precio_nino.setText(Float.toString(prices.priceMXnino));
+        this.precio_infante.setText(Float.toString(prices.priceMXinfante));
+        //MX PRICES
     }//GEN-LAST:event_btn_bookActionPerformed
 
     private void btn_cancelacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelacionesActionPerformed
@@ -479,6 +510,44 @@ public class Ventas extends javax.swing.JFrame {
         date= Input_Date.getDate();
         System.out.println(date.toString());
     }//GEN-LAST:event_BTN_DAyActionPerformed
+
+    private void btn_mxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_mxActionPerformed
+        // TODO add your handling code here:
+        this.precio_adulto.setText(Float.toString(prices.priceMXadulto));
+        this.precio_nino.setText(Float.toString(prices.priceMXnino));
+        this.precio_infante.setText(Float.toString(prices.priceMXinfante));
+    }//GEN-LAST:event_btn_mxActionPerformed
+
+    private void btn_usdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_usdActionPerformed
+        // TODO add your handling code here:
+       this.precio_adulto.setText(Float.toString(prices.priceUSadulto));
+        this.precio_nino.setText(Float.toString(prices.priceUSnino));
+        this.precio_infante.setText(Float.toString(prices.priceUSinfante));
+    }//GEN-LAST:event_btn_usdActionPerformed
+
+    private void Horario2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Horario2ActionPerformed
+        // TODO add your handling code here:
+        if (this.Horario2.isSelected()){
+            this.Horario1.setSelected(false);
+            this.Horario3.setSelected(false);
+        }
+    }//GEN-LAST:event_Horario2ActionPerformed
+
+    private void Horario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Horario1ActionPerformed
+        // TODO add your handling code here:
+        if (this.Horario1.isSelected()){
+            this.Horario2.setSelected(false);
+            this.Horario3.setSelected(false);
+        }
+    }//GEN-LAST:event_Horario1ActionPerformed
+
+    private void Horario3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Horario3ActionPerformed
+        // TODO add your handling code here:
+        if (this.Horario3.isSelected()){
+            this.Horario1.setSelected(false);
+            this.Horario2.setSelected(false);
+        }
+    }//GEN-LAST:event_Horario3ActionPerformed
 
     /**
      * @param args the command line arguments
