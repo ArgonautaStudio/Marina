@@ -12,7 +12,7 @@ import javax.swing.ImageIcon;
  * @author aleja
  */
 public class Ventas extends javax.swing.JFrame {
-
+    int x, y;
     /**
      * Creates new form Ventas
      */
@@ -31,13 +31,11 @@ public class Ventas extends javax.swing.JFrame {
     private void initComponents() {
 
         panel_drag = new javax.swing.JPanel();
-        btn_minimizar = new javax.swing.JLabel();
         btn_cerrar = new javax.swing.JButton();
-        drag = new javax.swing.JLabel();
+        Drager = new javax.swing.JLabel();
+        BG = new javax.swing.JLabel();
         panel_pasos = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         fondo_pasos = new javax.swing.JLabel();
         panel_opciones = new javax.swing.JPanel();
         btn_terminos = new javax.swing.JButton();
@@ -79,32 +77,43 @@ public class Ventas extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         panel_calendario = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1600, 900));
+        setMinimumSize(new java.awt.Dimension(1600, 850));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1600, 820));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panel_drag.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_minimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Btn_Recurso 100_Normal.png"))); // NOI18N
-        panel_drag.add(btn_minimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1490, 0, 40, -1));
-
         btn_cerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Btn_Cerrar_1_Normal.png"))); // NOI18N
         btn_cerrar.setContentAreaFilled(false);
+        btn_cerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_cerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_cerrarActionPerformed(evt);
             }
         });
-        panel_drag.add(btn_cerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1540, 0, 50, 40));
+        panel_drag.add(btn_cerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1550, 0, 50, 40));
 
-        drag.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/TB_Bar.jpg"))); // NOI18N
-        drag.setPreferredSize(new java.awt.Dimension(1600, 42));
-        panel_drag.add(drag, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 40));
+        Drager.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
+        Drager.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                DragerMouseDragged(evt);
+            }
+        });
+        Drager.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                DragerMousePressed(evt);
+            }
+        });
+        panel_drag.add(Drager, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1490, 40));
+
+        BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/TB_Bar.jpg"))); // NOI18N
+        BG.setPreferredSize(new java.awt.Dimension(1600, 42));
+        panel_drag.add(BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 40));
 
         getContentPane().add(panel_drag, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 40));
 
@@ -112,12 +121,6 @@ public class Ventas extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BC_Icn_Divider.png"))); // NOI18N
         panel_pasos.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 10, 20, -1));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BC_Icn_Car.png"))); // NOI18N
-        panel_pasos.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 10, -1, -1));
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BC_Icn_Conection.png"))); // NOI18N
-        panel_pasos.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 10, -1, 30));
 
         fondo_pasos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BC_Main_TopBar.png"))); // NOI18N
         fondo_pasos.setMaximumSize(new java.awt.Dimension(1300, 80));
@@ -132,6 +135,7 @@ public class Ventas extends javax.swing.JFrame {
         btn_terminos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Btn_TC_Static.png"))); // NOI18N
         btn_terminos.setBorderPainted(false);
         btn_terminos.setContentAreaFilled(false);
+        btn_terminos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_terminos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btn_terminosMouseEntered(evt);
@@ -150,6 +154,7 @@ public class Ventas extends javax.swing.JFrame {
         btn_cancelaciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Btn_Cancel_Static.png"))); // NOI18N
         btn_cancelaciones.setBorderPainted(false);
         btn_cancelaciones.setContentAreaFilled(false);
+        btn_cancelaciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_cancelaciones.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btn_cancelacionesMouseEntered(evt);
@@ -190,7 +195,7 @@ public class Ventas extends javax.swing.JFrame {
         panel_opciones.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, -1, -1));
 
         guy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BC_Icn_Contact_02.png"))); // NOI18N
-        panel_opciones.add(guy, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 50, 60));
+        panel_opciones.add(guy, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 12, 70, 60));
 
         icon_guy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BC_Icn_ContactBubble.png"))); // NOI18N
         panel_opciones.add(icon_guy, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
@@ -206,21 +211,27 @@ public class Ventas extends javax.swing.JFrame {
         panel_bookOpciones.setBackground(new java.awt.Color(255, 255, 255));
         panel_bookOpciones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        input_infante.setBackground(new java.awt.Color(240, 240, 240));
         input_infante.setFont(new java.awt.Font("Roboto", 0, 55)); // NOI18N
+        input_infante.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         input_infante.setText("0");
         input_infante.setAutoscrolls(false);
         input_infante.setBorder(null);
         input_infante.setOpaque(false);
         panel_bookOpciones.add(input_infante, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 330, 60, 60));
 
+        input_nino.setBackground(new java.awt.Color(240, 240, 240));
         input_nino.setFont(new java.awt.Font("Roboto", 0, 55)); // NOI18N
+        input_nino.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         input_nino.setText("0");
         input_nino.setAutoscrolls(false);
         input_nino.setBorder(null);
         input_nino.setOpaque(false);
         panel_bookOpciones.add(input_nino, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 230, 60, 60));
 
+        input_adulto.setBackground(new java.awt.Color(240, 240, 240));
         input_adulto.setFont(new java.awt.Font("Roboto", 0, 55)); // NOI18N
+        input_adulto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         input_adulto.setText("0");
         input_adulto.setAutoscrolls(false);
         input_adulto.setBorder(null);
@@ -346,9 +357,6 @@ public class Ventas extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Ag_Box_Day.jpg"))); // NOI18N
         panel_bookOpciones.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 700, 470));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Ag_Box_Price.jpg"))); // NOI18N
-        panel_bookOpciones.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, -1, -1));
-
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Ag_Box_Hour.jpg"))); // NOI18N
         panel_bookOpciones.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, -1, -1));
 
@@ -358,24 +366,25 @@ public class Ventas extends javax.swing.JFrame {
         panel_calendario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(panel_calendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 1300, 760));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/App_BaseComponents.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_cerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cerrarActionPerformed
-        //Cierra
+        System.exit(0);
     }//GEN-LAST:event_btn_cerrarActionPerformed
 
     private void btn_bookMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_bookMouseEntered
+        if (!this.panel_bookOpciones.isVisible()){
         ImageIcon img = new ImageIcon(getClass().getResource("/img/Btn_Book_Hover.png"));
         btn_book.setIcon(img);
+        }
     }//GEN-LAST:event_btn_bookMouseEntered
 
     private void btn_bookMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_bookMouseExited
+        if (!this.panel_bookOpciones.isVisible()){
         ImageIcon img = new ImageIcon(getClass().getResource("/img/Btn_Book_Static.png"));
         btn_book.setIcon(img);
+        }
     }//GEN-LAST:event_btn_bookMouseExited
 
     private void btn_bookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_bookActionPerformed
@@ -415,6 +424,17 @@ public class Ventas extends javax.swing.JFrame {
         btn_cancelaciones.setIcon(img);
     }//GEN-LAST:event_btn_cancelacionesMouseExited
 
+    private void DragerMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DragerMouseDragged
+        // TODO add your handling code here:
+        this.setLocation(this.getLocation().x + evt.getX() - x, this.getLocation().y + evt.getY() - y);
+    }//GEN-LAST:event_DragerMouseDragged
+
+    private void DragerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DragerMousePressed
+        // TODO add your handling code here:
+        x = evt.getX();
+        y = evt.getY();
+    }//GEN-LAST:event_DragerMousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -451,19 +471,19 @@ public class Ventas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BG;
+    private javax.swing.JLabel Drager;
     private javax.swing.JLabel box;
     private javax.swing.JButton btn_book;
     private javax.swing.JButton btn_cancelaciones;
     private javax.swing.JButton btn_cancelar;
     private javax.swing.JButton btn_cerrar;
     private javax.swing.JLabel btn_codigoPromocion;
-    private javax.swing.JLabel btn_minimizar;
     private javax.swing.JButton btn_mx;
     private javax.swing.JButton btn_seguirComprando;
     private javax.swing.JButton btn_siguiente;
     private javax.swing.JButton btn_terminos;
     private javax.swing.JButton btn_usd;
-    private javax.swing.JLabel drag;
     private javax.swing.JLabel fondito1;
     private javax.swing.JLabel fondito2;
     private javax.swing.JLabel fondito3;
@@ -476,7 +496,6 @@ public class Ventas extends javax.swing.JFrame {
     private javax.swing.JTextField input_adulto;
     private javax.swing.JTextField input_infante;
     private javax.swing.JTextField input_nino;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -488,10 +507,7 @@ public class Ventas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel label_adultoTotal;
