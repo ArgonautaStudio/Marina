@@ -636,8 +636,8 @@ public class LogInWindow extends javax.swing.JFrame {
             this.systemExit();
             setVisible(false);
             //Abre la siguiente ventana
-            //Principal Principal = new Principal();
-            //Principal.setVisible(true);
+            Ventas Principal = new Ventas();
+            Principal.setVisible(true);
             
         }
             
