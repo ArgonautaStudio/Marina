@@ -221,4 +221,30 @@ public class Conecction {
         }
         
     }
+
+    public float[] getMXprices(int tipo) {
+         float[] ar =new float[3];
+         
+        try
+        {
+            Class.forName(myDriver);
+            Connection conn = DriverManager.getConnection(url, user, pass);
+            String []names = new String[1];
+            String query = "SELECT precioAdultoMX,precioNinoMX,precioInfanteMX FROM Marina_PDE_DB.tour where idtour = " + tipo;
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            ar[0]=rs.getFloat("precioAdultoMX");
+            rs.next();
+            ar[1]=rs.getFloat("precioNinoMX");
+            rs.next();
+            ar[2]=rs.getFloat("precioInfanteMX");
+        return ar;
+        }
+        catch (ClassNotFoundException | SQLException e)
+        {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
+            return null;
+        }
+    }
 }
